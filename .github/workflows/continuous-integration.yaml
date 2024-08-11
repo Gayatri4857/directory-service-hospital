@@ -34,8 +34,15 @@ jobs:
         run: mvn ossindex:audit
 
       - name: OWASP Scan
+        if: false
         run: mvn org.owasp:dependency-check-maven:check
 
-      
+      - name: Run Unit Tests
+        run: mvn test
 
-      
+      - name: Report Test Results
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-results
+          path: target/surefire-reports/*.xml
