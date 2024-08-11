@@ -60,7 +60,7 @@ jobs:
           password: ${{secrets.DOCKER_REGISTRY_PAT}}
 
       - name: Push docker image
-        run: docker push gayatri589/directory-service:latest
+        run: docker push {{variables.DOCKER_REGISTRY_USER}}/directory-service:latest
         
 
 
