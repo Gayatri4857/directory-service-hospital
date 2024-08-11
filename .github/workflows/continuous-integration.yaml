@@ -56,11 +56,11 @@ jobs:
       - name: Log in to GitHub Docker Registry
         uses: docker/login-action@v4
         with:
-          username: ${{variables.DOCKER_REGISTRY_USER}}
+          username: ${{env.DOCKER_REGISTRY_USER}}
           password: ${{secrets.DOCKER_REGISTRY_PAT}}
 
       - name: Push docker image
-        run: docker push {{variables.DOCKER_REGISTRY_USER}}/directory-service:latest
+        run: docker push {{env.DOCKER_REGISTRY_USER}}/directory-service:latest
         
 
 
